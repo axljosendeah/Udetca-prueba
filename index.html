@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>UDETCA · Unidad de Diagnóstico · Barcelona, Anzoátegui</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1b3c8a;--deep:#0f2559;--green:#00a859;--mist:#eef3fa;--bg:#fff;--ink:#12203f;--mute:#53617f;--line:#d9e2f1;--card:#fff;--link:#1b3c8a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1326;--mist:#111c36;--ink:#e8eefa;--mute:#9fb0d2;--line:#25335a;--card:#131f3d;--link:#8fb0ff;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0b1326;--mist:#111c36;--ink:#e8eefa;--mute:#9fb0d2;--line:#25335a;--card:#131f3d;--link:#8fb0ff;color-scheme:dark}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Figtree,system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque",Figtree,system-ui,sans-serif;line-height:1.08;margin:0;letter-spacing:-.02em}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+header{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:22px;height:68px}
+.bar img{height:52px;width:auto;object-fit:contain;background:#fff;border-radius:6px}
+.bar b{font:800 20px "Bricolage Grotesque",sans-serif;color:var(--link)}
+.bar nav{margin-left:auto;display:flex;gap:22px;font-weight:500;font-size:15px}
+.bar nav a{text-decoration:none;color:var(--mute)}.bar nav a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;background:var(--green);color:#fff;font-weight:600;text-decoration:none;border:0;cursor:pointer;font-size:16px;font-family:inherit}
+.btn:hover{filter:brightness(.93)}
+.btn.alt{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+:focus-visible{outline:3px solid var(--green);outline-offset:2px}
+.hero{padding:64px 0 72px;position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
+.hero h1{font-size:clamp(38px,6vw,68px);font-weight:800;color:var(--ink)}
+.hero p.lead{font-size:19px;color:var(--mute);max-width:34em;margin:20px 0 28px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.status{display:inline-flex;align-items:center;gap:9px;background:var(--mist);border:1px solid var(--line);border-radius:999px;padding:7px 15px;font-size:15px;margin-bottom:22px}
+.dot{width:10px;height:10px;border-radius:50%;background:#98a2b8}.dot.on{background:var(--green);box-shadow:0 0 0 4px rgba(0,168,89,.2)}
+.ficha{position:relative;background:var(--navy);color:#fff;border-radius:28px;padding:34px 30px;isolation:isolate;overflow:hidden}
+.ficha:before,.ficha:after{content:"";position:absolute;width:120px;height:120px;background:var(--green);transform:rotate(45deg);z-index:-1}
+.ficha:before{right:-60px;top:46%}.ficha:after{left:-70px;bottom:-30px;background:#2a54b5;width:150px;height:150px}
+.ficha h2{font-size:24px;margin-bottom:16px}
+.ficha ul{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.ficha li{display:grid;grid-template-columns:22px 1fr;gap:10px;font-size:16px}
+.ficha li span{color:#8fe3b8;font-weight:700}
+section{padding:72px 0}
+.mist{background:var(--mist)}
+.sh{max-width:36em;margin-bottom:34px}
+.sh h2{font-size:clamp(30px,4.2vw,44px);font-weight:700}
+.sh p{color:var(--mute);margin:12px 0 0}
+.tabs{display:grid;grid-template-columns:300px 1fr;gap:28px;align-items:start}
+[role=tablist]{display:flex;flex-direction:column;gap:8px}
+[role=tab]{display:flex;align-items:center;gap:12px;text-align:left;padding:15px 18px;border-radius:14px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:600 16px Figtree,sans-serif;cursor:pointer}
+[role=tab]:before{content:"";width:10px;height:10px;background:var(--line);transform:rotate(45deg);flex:none;transition:.2s}
+[role=tab][aria-selected=true]{background:var(--navy);border-color:var(--navy);color:#fff}
+[role=tab][aria-selected=true]:before{background:var(--green);transform:rotate(45deg) scale(1.3)}
+[role=tabpanel]{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:32px;min-height:340px}
+[role=tabpanel] h3{font-size:30px;margin-bottom:10px}
+[role=tabpanel] p{color:var(--mute);margin:0 0 18px}
+[role=tabpanel] ul{margin:0 0 24px;padding:0;list-style:none;display:grid;gap:10px}
+[role=tabpanel] li{padding-left:26px;position:relative}
+[role=tabpanel] li:before{content:"";position:absolute;left:4px;top:.6em;width:8px;height:8px;background:var(--green);transform:rotate(45deg)}
+.note{font-size:14.5px;color:var(--mute);border-left:3px solid var(--green);padding-left:12px;margin:0 0 22px}
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+ol.st{list-style:none;margin:0;padding:0;counter-reset:s}
+ol.st li{counter-increment:s;display:grid;grid-template-columns:48px 1fr;gap:14px;padding-bottom:26px;position:relative}
+ol.st li:before{content:counter(s);display:grid;place-items:center;width:42px;height:42px;background:var(--navy);color:#fff;border-radius:12px;transform:rotate(45deg) scale(.8);font:700 18px "Bricolage Grotesque"}
+ol.st li:before{rotate:-45deg}
+ol.st b{display:block;font:700 19px "Bricolage Grotesque"}
+ol.st span{color:var(--mute)}
+form{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px;display:grid;gap:14px}
+label{font-weight:600;font-size:15px;display:grid;gap:6px}
+input,select,textarea{font:inherit;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);width:100%}
+.emp{background:var(--deep);color:#fff;border-radius:28px;padding:48px;display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center;position:relative;overflow:hidden}
+.emp h2{font-size:clamp(28px,4vw,40px);margin-bottom:14px}
+.emp p{color:#c4d2f0;margin:0 0 22px}
+.emp .big{font:800 clamp(48px,9vw,96px)/1 "Bricolage Grotesque";color:var(--green);text-align:center}
+.emp small{display:block;text-align:center;color:#c4d2f0;font-size:15px;margin-top:8px}
+details{border-bottom:1px solid var(--line);padding:4px 0}
+summary{cursor:pointer;font:600 18px Figtree;padding:16px 0;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";font-size:24px;color:var(--green);line-height:1}
+details[open] summary:after{content:"–"}
+details p{margin:0 0 16px;color:var(--mute);max-width:42em}
+.loc{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.loc div{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px}
+.loc h3{font-size:22px;margin-bottom:10px}
+.loc p{margin:0 0 8px;color:var(--mute)}
+footer{background:var(--deep);color:#c4d2f0;padding:34px 0;font-size:15px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between}
+footer a{color:#fff}
+@media(max-width:820px){.hero .wrap,.tabs,.steps,.emp,.loc{grid-template-columns:1fr}
+.bar nav{display:none}.bar .btn{margin-left:auto}
+[role=tablist]{flex-direction:row;overflow-x:auto;padding-bottom:6px}[role=tab]{white-space:nowrap}
+.emp{padding:32px 24px}section{padding:52px 0}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap bar">
+<img src="data:image/jpeg;base64,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" alt="Logo de UDETCA">
+<nav aria-label="Principal"><a href="#servicios">Servicios</a><a href="#agendar">Agendar</a><a href="#empresas">Empresas</a><a href="#ubicacion">Ubicación</a></nav>
+<a class="btn" href="https://wa.me/584248059131">WhatsApp</a>
+</div></header>
+
+<main>
+<div class="hero"><div class="wrap">
+<div>
+<div class="status"><i class="dot" id="dot"></i><span id="st">Revisando horario…</span></div>
+<h1>Tu diagnóstico y tu recuperación, en un solo lugar de Barcelona.</h1>
+<p class="lead">Laboratorio, ecografías, consultas especializadas, fisioterapia y estética en la Fundación Mendoza. Escríbenos por WhatsApp: siempre estamos en línea.</p>
+<div class="cta"><a class="btn" href="#agendar">Pedir una cita</a><a class="btn alt" href="#servicios">Ver servicios</a></div>
+</div>
+<aside class="ficha" aria-label="Datos rápidos">
+<h2>Lo que necesitas saber</h2>
+<ul>
+<li><span>◆</span>Lunes a viernes, de 7:00 am a 4:00 pm</li>
+<li><span>◆</span>Av. Pastor Oropeza, Manzana 3, Casa #8, Fundación Mendoza</li>
+<li><span>◆</span>Citas y consultas por WhatsApp: 0424 805 91 31</li>
+<li><span>◆</span>Servicio de ambulancia para particulares y empresas</li>
+</ul>
+</aside>
+</div></div>
+
+<section class="mist" id="servicios"><div class="wrap">
+<div class="sh"><h2>Todo lo que podemos hacer por ti</h2><p>Elige un servicio para ver en qué consiste y cómo pedir tu cita.</p></div>
+<div class="tabs"><div role="tablist" aria-label="Servicios" id="tl"></div><div role="tabpanel" id="tp" tabindex="0"></div></div>
+</div></section>
+
+<section id="agendar"><div class="wrap steps">
+<div>
+<div class="sh"><h2>Agendar es así de sencillo</h2><p>Sin llamadas largas ni filas para pedir turno.</p></div>
+<ol class="st">
+<li><div><b>Escríbenos por WhatsApp</b><span>Cuéntanos qué servicio necesitas. Respondemos en el horario de atención.</span></div></li>
+<li><div><b>Confirma tu cita</b><span>Te indicamos día, hora y, si el estudio lo requiere, la preparación previa.</span></div></li>
+<li><div><b>Visítanos en la Fundación Mendoza</b><span>Te esperamos en Barcelona con tu cita confirmada.</span></div></li>
+</ol>
+</div>
+<form id="f">
+<label>Tu nombre<input id="n" required autocomplete="name"></label>
+<label>Servicio<select id="s"></select></label>
+<label>Mensaje (opcional)<textarea id="m" rows="3" placeholder="Por ejemplo: prefiero ir en la mañana"></textarea></label>
+<button class="btn" type="submit">Enviar por WhatsApp</button>
+<small style="color:var(--mute)">Se abrirá WhatsApp con tu mensaje listo para enviar.</small>
+</form>
+</div></section>
+
+<section class="mist" id="empresas"><div class="wrap">
+<div class="emp">
+<div><h2>Ambulancias para tu operación</h2><p>Alquiler de ambulancias en áreas operativas: presencia médica de apoyo dentro de plantas, obras y espacios industriales. Pide información para tu empresa.</p><a class="btn" href="https://wa.me/584248059131?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20alquiler%20de%20ambulancias%20para%20mi%20empresa.">Consultar para mi empresa</a></div>
+<div><div class="big">En sitio</div><small>Disponibilidad y tarifas: por WhatsApp</small></div>
+</div></div></section>
+
+<section id="preguntas"><div class="wrap" style="max-width:820px">
+<div class="sh"><h2>Preguntas frecuentes</h2></div>
+<details><summary>¿Necesito cita para una ecografía?</summary><p>Sí. Las ecografías (abdominal, prostática y renal) se hacen previa cita. Escríbenos por WhatsApp para reservar.</p></details>
+<details><summary>¿Cuál es el horario de atención?</summary><p>De lunes a viernes, de 7:00 am a 4:00 pm.</p></details>
+<details><summary>¿Cómo llego?</summary><p>Estamos en la Fundación Mendoza, Barcelona. Para el servicio de ambulancia, la entrada es por la casilla policial de la intercomunal.</p></details>
+<details><summary>¿Atienden a empresas?</summary><p>Sí. Ofrecemos alquiler de ambulancias en áreas operativas. Pide la información por WhatsApp.</p></details>
+<details><summary>¿Dónde puedo ver novedades?</summary><p>En nuestro Instagram @udetca publicamos servicios, especialidades y horarios.</p></details>
+</div></section>
+
+<section class="mist" id="ubicacion"><div class="wrap">
+<div class="sh"><h2>Dónde encontrarnos</h2></div>
+<div class="loc">
+<div><h3>Dirección</h3><p>Av. Pastor Oropeza, Manzana 3, Casa #8, Fundación Mendoza. Barcelona, Anzoátegui.</p><p>Ambulancias: entrada por la casilla policial de la intercomunal.</p></div>
+<div><h3>Contacto</h3><p>WhatsApp: 0424 805 91 31<br>Lunes a viernes, 7:00 am a 4:00 pm<br>Instagram: @udetca</p><a class="btn" href="https://wa.me/584248059131">Escribir ahora</a></div>
+</div></div></section>
+</main>
+
+<footer><div class="wrap"><span>© UDETCA · Unidad de Diagnóstico · Barcelona, Anzoátegui</span><span>Propuesta de diseño web · <a href="https://wa.me/584248059131">0424 805 91 31</a></span></div></footer>
+
+<script>
+var S=[
+{k:"Laboratorio",t:"Laboratorio clínico",d:"Tus análisis en el mismo lugar donde te consultan, para que el proceso sea más corto.",i:["Exámenes de laboratorio clínico","Indicaciones previas (como ayuno) antes de tu visita","Consulta por WhatsApp el examen que necesitas"]},
+{k:"Consultas",t:"Consultas médicas especializadas",d:"Atención con especialistas para niños y adultos.",i:["Pediatría","Otras especialidades disponibles","Pregunta por WhatsApp qué especialista atiende cada día"]},
+{k:"Ecografías",t:"Ecosonografía",d:"Estudios por imagen para ver con claridad lo que tu médico necesita.",i:["Eco abdominal","Eco prostático","Eco renal"],n:"Estos estudios se realizan previa cita."},
+{k:"Fisioterapia",t:"Fisioterapia y rehabilitación",d:"Sesiones guiadas para recuperar movilidad y aliviar el dolor.",i:["Sesiones de fisioterapia","Rehabilitación personalizada","Horario: lunes a viernes, 7:00 am a 4:00 pm"]},
+{k:"Estética",t:"Estética",d:"Cuidado personal en un entorno clínico y de confianza.",i:["Tratamientos estéticos","Consulta por WhatsApp los tratamientos disponibles"]}
+];
+var tl=document.getElementById("tl"),tp=document.getElementById("tp"),sel=document.getElementById("s");
+function wa(t){return"https://wa.me/584248059131?text="+encodeURIComponent(t)}
+function show(j){
+ [].forEach.call(tl.children,function(b,x){b.setAttribute("aria-selected",x==j);b.tabIndex=x==j?0:-1});
+ var s=S[j];
+ tp.innerHTML="<h3>"+s.t+"</h3><p>"+s.d+"</p><ul>"+s.i.map(function(a){return"<li>"+a+"</li>"}).join("")+"</ul>"+(s.n?'<p class="note">'+s.n+"</p>":"")+'<a class="btn" href="'+wa("Hola, quiero pedir cita para "+s.k+".")+'">Pedir cita para '+s.k.toLowerCase()+"</a>";
+}
+S.forEach(function(s,j){
+ var b=document.createElement("button");b.setAttribute("role","tab");b.textContent=s.k;b.onclick=function(){show(j)};
+ b.onkeydown=function(e){var n=e.key=="ArrowDown"||e.key=="ArrowRight"?1:e.key=="ArrowUp"||e.key=="ArrowLeft"?-1:0;if(n){var m=(j+n+S.length)%S.length;show(m);tl.children[m].focus();e.preventDefault()}};
+ tl.appendChild(b);
+ var o=document.createElement("option");o.textContent=s.t;sel.appendChild(o);
+});
+var o=document.createElement("option");o.textContent="Ambulancia";sel.appendChild(o);
+show(0);
+document.getElementById("f").onsubmit=function(e){e.preventDefault();
+ var t="Hola, soy "+document.getElementById("n").value+". Quiero información y cita para: "+sel.value+"."+(document.getElementById("m").value?" "+document.getElementById("m").value:"");
+ window.open(wa(t),"_blank","noopener")};
+function est(){
+ var p=new Intl.DateTimeFormat("en-US",{timeZone:"America/Caracas",weekday:"short",hour:"numeric",hour12:false}).formatToParts(new Date()),w="",h=0;
+ p.forEach(function(x){if(x.type=="weekday")w=x.value;if(x.type=="hour")h=+x.value%24});
+ var on=["Mon","Tue","Wed","Thu","Fri"].indexOf(w)>-1&&h>=7&&h<16;
+ document.getElementById("dot").className="dot"+(on?" on":"");
+ document.getElementById("st").textContent=on?"Abierto ahora · hasta las 4:00 pm":"Cerrado ahora · abrimos de lunes a viernes a las 7:00 am";
+}
+try{est()}catch(e){document.getElementById("st").textContent="Lunes a viernes, 7:00 am a 4:00 pm"}
+</script>
+</body>
+</html>
